@@ -22,18 +22,18 @@ public class TestCase5 {
         WebElement singUp = driver.findElement(By.xpath("(//div[@data-ux='Element'])[2]"));
         WebElement input = driver.findElement(By.xpath("//input[@data-aid='CONTACT_FORM_EMAIL_OPT_IN']"));
 
-        System.out.println(comfyeLogo.isDisplayed() ? "PASSED": "FAILED");
-        System.out.println(headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED");
+        System.out.println("Comfy logo validation "+(comfyeLogo.isDisplayed() ? "PASSED": "FAILED"));
+        System.out.println("Header logo validation " + (headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED"));
 
         singUp.click();
         validateURL(driver,"https://comfyelite.com/contact-us" );
         Thread.sleep(1000);
 
-        System.out.println(input.isSelected()?"PASSED":"FAILED");
+        System.out.println("Checked box validation "+(input.isSelected()?"PASSED":"FAILED"));
 
         singUp.click();
         Thread.sleep(1000);
-        System.out.println(!input.isSelected()?"PASSED":"FAILED");
+        System.out.println("Checked box validation "+(!input.isSelected()?"PASSED":"FAILED"));
 
         Driver.quitDriver();
     }

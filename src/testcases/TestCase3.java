@@ -23,10 +23,10 @@ public class TestCase3 {
         WebElement contactUsHead = driver.findElement(By.xpath("//h2/span[@data-ux='Element']"));
         WebElement sendUsAMessage = driver.findElement(By.xpath("//h4[@data-ux='HeadingMinor']"));
 
-        System.out.println(comfyeLogo.isDisplayed() ? "PASSED": "FAILED");
-        System.out.println(headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED");
-        System.out.println(contactUsHead.isDisplayed()?"PASSED":"FALSE");
-        System.out.println(sendUsAMessage.isDisplayed()?"PASSED":"FALSE");
+        System.out.println("Validation Comfy logo " + (comfyeLogo.isDisplayed() ? "PASSED": "FAILED"));
+        System.out.println("Validation of header " + (headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED"));
+        System.out.println("Validation of Contact Us " + (contactUsHead.isDisplayed()?"PASSED":"FALSE"));
+        System.out.println("Validation Send Us Message " + (sendUsAMessage.isDisplayed()?"PASSED":"FALSE"));
 
 
         Driver.quitDriver();

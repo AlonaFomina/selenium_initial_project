@@ -29,11 +29,11 @@ public class TestCase6 {
 
 
 
-        System.out.println(comfyeLogo.isDisplayed() ? "PASSED": "FAILED");
-        System.out.println(headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED");
-        System.out.println(sendButton.isDisplayed() && sendButton.isEnabled()? "PASSED":"FAILED");
+        System.out.println("Validation has "+(comfyeLogo.isDisplayed() ? "PASSED": "FAILED"));
+        System.out.println("Validation has "+(headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED"));
+        System.out.println("Validation SEND button "+(sendButton.isDisplayed() && sendButton.isEnabled()? "PASSED":"FAILED"));
         System.out.println(sendButton.getText());
-        System.out.println(sendButton.getText().equals("SEND")?"PASSED":"FAILED");
+        System.out.println("Validation SEND button text"+(sendButton.getText().equals("SEND")?"PASSED":"FAILED"));
 
         Driver.quitDriver();
     }

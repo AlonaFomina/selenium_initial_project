@@ -26,12 +26,12 @@ public class TestCase4 {
         WebElement messageBox = driver.findElement(By.xpath("//div/textarea[@data-ux='InputTextArea']"));
 
 
-        System.out.println(comfyeLogo.isDisplayed() ? "PASSED": "FAILED");
-        System.out.println(headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED");
-        System.out.println(firstName.isDisplayed() && firstName.isEnabled()?"PASSED":"FAILED");
-        System.out.println(lastName.isDisplayed() && lastName.isEnabled()?"PASSED":"FAILED");
-        System.out.println(email.isDisplayed() && email.isEnabled()?"PASSED":"FAILED");
-        System.out.println(messageBox.isDisplayed() && messageBox.isEnabled()?"PASSED":"FAILED");
+        System.out.println("Validation of Comfy logo " + (comfyeLogo.isDisplayed() ? "PASSED": "FAILED"));
+        System.out.println("Validation of header " + (headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED"));
+        System.out.println("Validation of first name input " + (firstName.isDisplayed() && firstName.isEnabled()?"PASSED":"FAILED"));
+        System.out.println("Validation of last name input "+(lastName.isDisplayed() && lastName.isEnabled()?"PASSED":"FAILED"));
+        System.out.println("Validation of email input"+(email.isDisplayed() && email.isEnabled()?"PASSED":"FAILED"));
+        System.out.println("Validation of message box "+(messageBox.isDisplayed() && messageBox.isEnabled()?"PASSED":"FAILED"));
 
         Driver.quitDriver();
     }
