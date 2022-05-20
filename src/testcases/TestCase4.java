@@ -26,8 +26,8 @@ public class TestCase4 {
 
         List<WebElement> input = driver.findElements(By.xpath("//input[@data-ux='InputFloatLabel']"));
         List<WebElement> inputLabel = driver.findElements(By.xpath("//label[@data-ux='InputFloatLabelLabel']"));
-        String[] expectedLabel = {"First Name*", "Last Name*", "Email*"};
-        String[] expectedKey = {"John", "Doe", "johndoe@gmail.com"};
+        String[] expectedLabel = {"First Name*", "Last Name*", "Email*", "Message*"};
+        String[] expectedKey = {"John", "Doe", "johndoe@gmail.com", "message"};
 
         WebElement messageBox = driver.findElement(By.xpath("//textarea[@data-ux='InputTextArea']"));
 
@@ -38,8 +38,13 @@ public class TestCase4 {
                             && input.get(i).getAttribute("value").equals(expectedKey[i])
                             && inputLabel.get(i).getText().equals(expectedLabel[i])
                             ? "PASSED" : "FAILED"));
-
         }
+
+        messageBox.sendKeys(expectedKey[3]);
+        System.out.println("Validation of message box " + (messageBox.isDisplayed() && messageBox.isEnabled()
+                && messageBox.getText().equals(expectedKey[3])
+                && messageBox.getAttribute("placeholder").equals(expectedLabel[3])
+                ? "PASSED" : "FAILED"));
 
 
         Driver.quitDriver();
