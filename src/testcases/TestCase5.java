@@ -17,13 +17,9 @@ public class TestCase5 {
 
         contactUs.click();
 
-        WebElement comfyeLogo = driver.findElement(By.xpath("//img[@data-ux='ImageLogo']"));
-        WebElement headerLogo = driver.findElement(By.xpath("//h2[@data-ux='Tagline']"));
         WebElement singUp = driver.findElement(By.xpath("(//div[@data-ux='Element'])[2]"));
         WebElement input = driver.findElement(By.xpath("//input[@data-aid='CONTACT_FORM_EMAIL_OPT_IN']"));
 
-        System.out.println("Comfy logo validation "+(comfyeLogo.isDisplayed() ? "PASSED": "FAILED"));
-        System.out.println("Header logo validation " + (headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED"));
 
         singUp.click();
         validateURL(driver,"https://comfyelite.com/contact-us" );

@@ -20,8 +20,6 @@ public class TestCase6 {
         contactUs.click();
         validateURL(driver,"https://comfyelite.com/contact-us" );
 
-        WebElement comfyeLogo = driver.findElement(By.xpath("//img[@data-ux='ImageLogo']"));
-        WebElement headerLogo = driver.findElement(By.xpath("//h2[@data-ux='Tagline']"));
         WebElement sendButton = driver.findElement(By.xpath("//button[@tccltracking='click']"));
 
 
@@ -29,8 +27,6 @@ public class TestCase6 {
 
 
 
-        System.out.println("Validation has "+(comfyeLogo.isDisplayed() ? "PASSED": "FAILED"));
-        System.out.println("Validation has "+(headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED"));
         System.out.println("Validation SEND button "+(sendButton.isDisplayed() && sendButton.isEnabled()? "PASSED":"FAILED"));
         System.out.println(sendButton.getText());
         System.out.println("Validation SEND button text"+(sendButton.getText().equals("SEND")?"PASSED":"FAILED"));

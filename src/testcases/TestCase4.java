@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.Driver;
 
+import java.util.List;
+
 import static utils.ValidationUtilities.validateURL;
 
 public class TestCase4 {
@@ -16,22 +18,29 @@ public class TestCase4 {
         WebElement contactUs = driver.findElement(By.xpath("(//a[@data-ux='NavLink'])[2]"));
 
         contactUs.click();
-        validateURL(driver,"https://comfyelite.com/contact-us" );
+        validateURL(driver, "https://comfyelite.com/contact-us");
 
         WebElement comfyeLogo = driver.findElement(By.xpath("//img[@data-ux='ImageLogo']"));
         WebElement headerLogo = driver.findElement(By.xpath("//h2[@data-ux='Tagline']"));
-        WebElement firstName= driver.findElement(By.xpath("(//div/input[@data-ux='InputFloatLabel'])[1]"));
-        WebElement lastName= driver.findElement(By.xpath("(//div/input[@data-ux='InputFloatLabel'])[2]"));
-        WebElement email = driver.findElement(By.xpath("(//div/input[@data-ux='InputFloatLabel'])[3]"));
-        WebElement messageBox = driver.findElement(By.xpath("//div/textarea[@data-ux='InputTextArea']"));
 
 
-        System.out.println("Validation of Comfy logo " + (comfyeLogo.isDisplayed() ? "PASSED": "FAILED"));
-        System.out.println("Validation of header " + (headerLogo.isDisplayed() ? headerLogo.getText()+ "PASSED": headerLogo.getText()+"FAILED"));
-        System.out.println("Validation of first name input " + (firstName.isDisplayed() && firstName.isEnabled()?"PASSED":"FAILED"));
-        System.out.println("Validation of last name input "+(lastName.isDisplayed() && lastName.isEnabled()?"PASSED":"FAILED"));
-        System.out.println("Validation of email input"+(email.isDisplayed() && email.isEnabled()?"PASSED":"FAILED"));
-        System.out.println("Validation of message box "+(messageBox.isDisplayed() && messageBox.isEnabled()?"PASSED":"FAILED"));
+        List<WebElement> input = driver.findElements(By.xpath("//input[@data-ux='InputFloatLabel']"));
+        List<WebElement> inputLabel = driver.findElements(By.xpath("//label[@data-ux='InputFloatLabelLabel']"));
+        String[] expectedLabel = {"First Name*", "Last Name*", "Email*"};
+        String[] expectedKey = {"John", "Doe", "johndoe@gmail.com"};
+
+        WebElement messageBox = driver.findElement(By.xpath("//textarea[@data-ux='InputTextArea']"));
+
+        for (int i = 0; i < inputLabel.size(); i++) {
+            input.get(i).sendKeys(expectedKey[i]);
+            System.out.println("Validation of " + expectedLabel[i].substring(0, expectedLabel[i].length() - 1) + " " +
+                    (input.get(i).isDisplayed() && input.get(i).isEnabled()
+                            && input.get(i).getAttribute("value").equals(expectedKey[i])
+                            && inputLabel.get(i).getText().equals(expectedLabel[i])
+                            ? "PASSED" : "FAILED"));
+
+        }
+
 
         Driver.quitDriver();
     }
